@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.22)
+project(OOP)
+
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(Task1-2 Task1/1-2.cpp)
+add_executable(Task1-3 Task1/1-3.cpp)
+add_executable(Task1-4 Task1/1-4.cpp)
+add_executable(Task1-5 Task1/1-5.cpp)
+add_executable(Task2-6 Task2/2-6.cpp)
+add_executable(Task2-7 Task2/2-7.cpp)
+add_executable(Task2-8 Task2/2-8.cpp)
+add_executable(Task2-9 Task2/2-9.cpp)
+add_executable(Task3-10 Task3/3-10.cpp)
