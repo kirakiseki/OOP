@@ -214,13 +214,15 @@ void Array<T>::pop_back() {
 }
 
 int main() {
+    cout << "----Create Array----" << endl;
     Array<int> arr1;
     cout << "Create arr1 with default constructor." << endl;
     Array<int> arr2(10);
     cout << "Create arr2 with capacity 10." << endl;
     cout << "arr1 init capacity: " << arr1.getCapacity() << endl;
-    cout << "arr1 init capacity: " << arr2.getCapacity() << endl;
+    cout << "arr2 init capacity: " << arr2.getCapacity() << endl;
 
+    cout << "----Push Elements----" << endl;
     cout << "Push elements into arr1:" << endl;
     arr1.push_back(1);
     cout << "Pushed 1 into arr1." << endl;
@@ -233,9 +235,10 @@ int main() {
 
     cout << "arr1 now capacity: " << arr1.getCapacity() << endl;
     arr1.push_back(5);
-    cout << "Pushed 5 into arr1." << endl;
+    cout << "Pushed 5 into arr1.(Capacity doubled)" << endl;
     cout << "arr1 now capacity: " << arr1.getCapacity() << endl;
 
+    cout << "----Array Traverse----" << endl;
     cout << "range-based for loop traverse of arr1:" << endl;
     for (int &i: arr1) {
         cout << i << endl;
@@ -245,6 +248,7 @@ int main() {
         cout << *i << endl;
     }
 
+    cout << "----Search Elements----" << endl;
     cout << "Find 4 in arr1." << endl;
     auto index = arr1.find(4) - arr1.begin();
     cout << "Found 5 in arr1 at index " << index << " ." << endl;
@@ -255,23 +259,26 @@ int main() {
     index = arr1.find(3, [](const int &a, const int &b) -> bool { return a == b; }) - arr1.begin();
     cout << "Found 3 in arr1 at index " << index << " ." << endl;
 
-    cout << "arr1 before reverse." << endl;
-    for (int &i: arr1) {
-        cout << i << endl;
-    }
+
+    cout << "----Create Array From Existing Array----" << endl;
     arr2 = arr1;
-    cout << "assign arr2 from arr1" << endl;
+    cout << "assign arr2 from arr1." << endl;
     cout << "arr2:" << endl;
     for (int &i: arr2) {
         cout << i << endl;
     }
     Array<int> arr3(arr1);
-    cout << "copy arr3 from arr1 using copy constructor." << endl;
+    cout << "create arr3 from arr1 using copy constructor." << endl;
     cout << "arr3:" << endl;
     for (int &i: arr3) {
         cout << i << endl;
     }
 
+    cout << "----Reverse Array----" << endl;
+    cout << "arr1 before reverse:" << endl;
+    for (int &i: arr1) {
+        cout << i << endl;
+    }
     cout << "reverse arr1 from begin() to end() using member function." << endl;
     arr1.reverse(arr1.begin(), arr1.end());
     for (int &i: arr1) {
@@ -285,6 +292,7 @@ int main() {
     cout << "verify if arr2==arr1 after reverse in two different ways." << endl;
     cout << "if arr1==arr2? result: " << (arr1 == arr2 ? "true" : "false") << endl;
 
+    cout << "----Sort Array----" << endl;
     cout << "sort arr1 from begin() to end() using sort() in <algorithm>." << endl;
     sort(arr1.begin(), arr1.end(), less<int>());
     cout << "arr1 after sort:" << endl;
@@ -292,6 +300,7 @@ int main() {
         cout << i << endl;
     }
 
+    cout << "----Resize Array----" << endl;
     arr1.resize(3);
     cout << "resize arr1 to size 3" << endl;
     cout << "arr1 after resize:" << endl;
@@ -299,11 +308,11 @@ int main() {
         cout << i << endl;
     }
 
+    cout << "----Pop Elements from Array----" << endl;
     cout << "arr2:" << endl;
     for (int &i: arr2) {
         cout << i << endl;
     }
-
     arr2.pop_back();
     cout << "pop back element from arr2." << endl;
     arr2.pop_back();
@@ -312,7 +321,7 @@ int main() {
     for (int &i: arr2) {
         cout << i << endl;
     }
-
+    cout << "----Erase Array----" << endl;
     arr2.erase(arr2.begin() + 1);
     cout << "erase the second element from arr2." << endl;
     arr2.erase(arr2.begin() + 1);
