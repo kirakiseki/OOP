@@ -25,12 +25,13 @@ void Complex::showValue() const {
     else if (a == 0) cout << b << "i";
     else if (b == 0) cout << a;
     else if (b == 1) cout << a << " + i";
+    else if (b == -1) cout << a << " - i";
     else if (b < 0) cout << a << " - " << -b << "i";
     else cout << a << " + " << b << "i";
 }
 
 int main() {
-    int a, b;
+    double a, b;
     cout << "Please input z1." << endl;
     cin >> a >> b;
     Complex z1(a, b);

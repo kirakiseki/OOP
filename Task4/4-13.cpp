@@ -3,7 +3,6 @@
 using namespace std;
 
 class Elevator {
-
 public:
     static int id;
     int price;

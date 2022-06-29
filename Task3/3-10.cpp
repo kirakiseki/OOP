@@ -27,6 +27,7 @@ void Complex::showValue() const {
     else if (a == 0) cout << b << "i";
     else if (b == 0) cout << a;
     else if (b == 1) cout << a << " + i";
+    else if (b == -1) cout << a << " - i";
     else if (b < 0) cout << a << " - " << -b << "i";
     else cout << a << " + " << b << "i";
 }

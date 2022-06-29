@@ -7,44 +7,45 @@ typedef unsigned long long int ull;
 
 class Factorial {
 public:
-    void fact(int _n);
+    void f(int n);
 
     void showResult() const;
 
     bool isRight() const;
 
 private:
-    int n;
-    ull value;
+    int value;
+    ull fact;
 };
 
-void Factorial::fact(int _n) {
+void Factorial::f(int n) {
     try {
-        n = _n;
-        if (_n > 20)
-            throw invalid_argument("n should not be bigger than 20 in ull range!");
+        value = n;
+        if (n > 20)
+            throw invalid_argument("value should not be bigger than 20 in ull range!");
     } catch (exception &e) {
         cout << "Error: " << e.what() << endl;
     }
-    value = 1;
-    for (int i = n; i > 1; --i) {
-        value *= i;
+    fact = 1;
+    for (int i = value; i > 1; --i) {
+        fact *= i;
     }
 }
 
 void Factorial::showResult() const {
-    cout << n << "! = " << value << endl;
+    cout << value << "! = " << fact << endl;
 }
 
 bool Factorial::isRight() const {
-    return value == (ull) tgamma(n + 1);
+    return fact == (ull) tgamma(value + 1);
 }
 
 int main() {
     int n;
     Factorial fact{};
+    cout << "Please input integer n." << endl;
     cin >> n;
-    fact.fact(n);
+    fact.f(n);
     fact.showResult();
     if (fact.isRight()) {
         cout << "Answer is right." << endl;

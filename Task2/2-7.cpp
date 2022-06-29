@@ -47,7 +47,10 @@ int main() {
         cin >> id >> quantity >> price;
         sold.emplace_back(make_pair(id, *new Product(quantity, price)));
     }
-    cout << "This product's Sum: " << Product::getSum() << " at average price: " << Product::getAvg() << endl;
+    cout << "This product's Sum: "
+         << Product::getSum()
+         << " at average price: "
+         << Product::getAvg() << endl;
     for (pair<int, Product> s: sold) {
         cout << "Salesman #" << s.first << endl;
         cout << "Sold quantity: " << s.second.getQuantity()
